@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <h1>Usuarios</h1>
+    <a href="/add">Agregar Usuario</a>
+    <table>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
+        </tr>
+        <% users.forEach(user => { %>
+        <tr>
+            <td><img src="/uploads/<%= user.image %>" alt="<%= user.name %>" width="80" height="80" /></td>
+            <td><%= user.name %></td>
+            <td><%= user.password %></td>
+            <td>
+                <a href="/edit/<%= user.id %>">Editar</a>
+                <a href="/delete/<%= user.id %>">Eliminar</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
